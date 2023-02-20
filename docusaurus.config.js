@@ -115,8 +115,8 @@ const config = {
       },
       algolia: {
         appId: process.env.ALGOLIA_APP_ID,
-        apiKey: process.env.ALGOLIA_API_KEY,
-        indexName: 'PROD_WEB',
+        apiKey: process.env.ALGOLIA_API_SEARCH_KEY,
+        indexName: process.env.ALGOLIA_INDEX_NAME,
         contextualSearch: true,
         externalUrlRegex: 'external\\.com|domain\\.com',
         searchParameters: {},
