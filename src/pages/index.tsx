@@ -34,12 +34,6 @@ export default function Home(): JSX.Element {
       <BrowserOnly fallback={<div>Loading...</div>}>
         {() => {
           useEffect( () => {
-            const CMS = require('netlify-cms-app');
-            const uploadcare = require('netlify-cms-media-library-uploadcare');
-
-            CMS.registerMediaLibrary(uploadcare)
-            CMS.init();
-
             const netlifyIdentity = require('netlify-identity-widget');
             netlifyIdentity.init({
               container: '#netlify-modal', // defaults to document.body
@@ -47,7 +41,11 @@ export default function Home(): JSX.Element {
             });
           }, [])
 
-          return <div id='netlify-modal' />;
+          return (
+            <div style={{display: 'none'}}>
+              <div id='netlify-modal'></div>
+            </div>
+          );
         }}
       </BrowserOnly>
       </>
