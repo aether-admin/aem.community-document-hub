@@ -34,17 +34,14 @@ export default function Home(): JSX.Element {
       <BrowserOnly fallback={<div>Loading...</div>}>
         {() => {
           useEffect( () => {
-            const netlifyIdentity = require('netlify-identity-widget');
-            netlifyIdentity.init({
-              container: '#netlify-modal', // defaults to document.body
-              locale: 'en' // defaults to 'en'
-            });
+            if (location.href.indexOf("#invite_token") != -1) {
+              var urlSplit = document.URL.split("#");
+              window.location.href = `/admin/#${urlSplit[1]}`;
+            }
           }, [])
 
           return (
-            <div style={{display: 'none'}}>
-              <div id='netlify-modal'></div>
-            </div>
+            <></>
           );
         }}
       </BrowserOnly>
